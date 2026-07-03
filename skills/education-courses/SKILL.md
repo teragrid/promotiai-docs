@@ -29,10 +29,13 @@ description: PromotiAI content operator template for Education / Online Courses 
 
 Organic content via the PromotiAI MCP supports **facebook, instagram, linkedin, tiktok**. This vertical's
 priority list from the Vertical Wizard defaults is `meta_ads, linkedin, youtube, content_seo` — of those,
-**linkedin** is directly usable as an MCP `platform` value for organic posts. `meta_ads`, `youtube`, and
-`content_seo` are paid/video/website channels — YouTube in particular is not one of the platforms the
-`create_post`/`schedule_post` tools support, so keep long-form video distribution on your own channel and use
-MCP for the LinkedIn/social promotion around it.
+**linkedin** is directly usable as an MCP `platform` value for organic posts. `meta_ads` campaign *records*
+(budget, objective, status) can be tracked with the `campaigns:read`/`campaigns:write` tools (`create_campaign`,
+`list_campaigns`, etc.), but there is no MCP path yet to actually launch or pause live ad spend — that step
+still happens natively on Meta or the dashboard's Campaigns tab. `youtube` and `content_seo` remain outside
+MCP's scope entirely — YouTube in particular is not one of the platforms the `create_post`/`schedule_post`
+tools support, so keep long-form video distribution on your own channel and use MCP for the LinkedIn/social
+promotion around it.
 
 ## What to track
 
@@ -60,4 +63,6 @@ this vertical:
 - Do not reuse the same copy across all platforms — always generate a platform-specific variant
 - Do not treat `youtube` as MCP-automatable — it isn't one of the platforms `create_post`/`schedule_post`
   support; distribute video separately and use MCP for the social promotion layer
-- Do not treat `meta_ads` / `content_seo` as MCP-automatable — those live outside MCP's scope
+- Do not assume `create_campaign` / `update_campaign` launches real `meta_ads` spend — they only manage
+  campaign records; the actual Meta launch still happens natively
+- Do not treat `content_seo` as MCP-automatable — it lives outside MCP's scope entirely

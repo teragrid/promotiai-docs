@@ -30,11 +30,15 @@ for [your business] — proximity-led, response-time forward, always with a stro
 
 Organic content via the PromotiAI MCP supports **facebook, instagram, linkedin, tiktok**. This vertical's
 priority list from the Vertical Wizard defaults is `google_local, meta_ads, google_search, referral` — none
-of these map directly to an MCP `platform` value; they're Google Business Profile, paid ads, search, and
-referral, all managed outside MCP (Google Business Profile directly, or the dashboard's Campaigns tab). If
-your business also keeps an active Facebook/Instagram presence for local trust-building (reviews, before/after
-photos, community posts), use MCP to generate and schedule that content — it's a real complement to the
-local-SEO/paid channels above, just not what the wizard defaults to first.
+of these map directly to an MCP `platform` value for organic posts; they're Google Business Profile, paid ads,
+search, and referral. `meta_ads` campaign *records* (budget, objective, status) can be tracked with the
+`campaigns:read`/`campaigns:write` tools (`create_campaign`, `list_campaigns`, etc.), but there is no MCP path
+yet to actually launch or pause live ad spend — that step still happens natively on Meta or the dashboard's
+Campaigns tab. `google_local` and `google_search` remain outside MCP's scope entirely (manage them directly in
+Google Business Profile / your SEO stack). If your business also keeps an active Facebook/Instagram presence
+for local trust-building (reviews, before/after photos, community posts), use MCP to generate and schedule
+that content — it's a real complement to the local-SEO/paid channels above, just not what the wizard defaults
+to first.
 
 ## What to track
 
@@ -59,6 +63,8 @@ this vertical:
 
 - Do not schedule Instagram posts without media attached — the publish job fails silently
 - Do not publish generated copy without reading it first
-- Do not treat `google_local` / `meta_ads` / `google_search` as MCP-automatable — those are managed directly
-  in Google Business Profile or the dashboard's Campaigns tab
+- Do not treat `google_local` / `google_search` as MCP-automatable — those are managed directly in Google
+  Business Profile or your SEO stack
+- Do not assume `create_campaign` / `update_campaign` launches real `meta_ads` spend — they only manage
+  campaign records; the actual Meta launch still happens natively
 - Do not bury the phone number/booking link — local-services content converts on the CTA, not the story

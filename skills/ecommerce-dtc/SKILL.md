@@ -31,9 +31,12 @@ description: PromotiAI content operator template for E-commerce / DTC brands —
 Organic content via the PromotiAI MCP supports **facebook, instagram, linkedin, tiktok**. This vertical's
 priority list from the Vertical Wizard defaults is `meta_ads, google_shopping, tiktok, email` — of those,
 **tiktok** is the one directly usable as an MCP `platform` value for organic posts. `meta_ads` and
-`google_shopping` are paid channels managed in the dashboard's **Campaigns** tab, not exposed via MCP tools;
-`email` is not currently an MCP-covered channel either. If your workspace also runs organic Facebook/Instagram,
-add those platforms to your generation loop — the defaults above are a starting point, not a ceiling.
+`google_shopping` are paid channels: campaign *records* (budget, objective, status) can be tracked with the
+`campaigns:read`/`campaigns:write` tools (`create_campaign`, `list_campaigns`, etc.), but there is no MCP path
+yet to actually launch or pause live ad spend — that step still happens natively on Meta/Google Ads or the
+dashboard's **Campaigns** tab. `email` is not currently an MCP-covered channel either. If your workspace also
+runs organic Facebook/Instagram, add those platforms to your generation loop — the defaults above are a
+starting point, not a ceiling.
 
 ## What to track
 
@@ -59,4 +62,5 @@ this vertical:
 - Do not schedule Instagram/TikTok posts without media attached — the publish job fails silently
 - Do not publish generated copy without reading it first
 - Do not reuse the same copy across all platforms — always generate a platform-specific variant
-- Do not treat `meta_ads` / `google_shopping` as MCP-automatable — those live in the dashboard Campaigns tab
+- Do not assume `create_campaign` / `update_campaign` launches real ad spend — they only manage campaign
+  records; the actual Meta/Google Ads launch still happens natively

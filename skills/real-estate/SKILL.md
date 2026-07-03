@@ -30,9 +30,12 @@ buyer/seller leads for [your market/area] — expert, photo/detail-forward, alwa
 Organic content via the PromotiAI MCP supports **facebook, instagram, linkedin, tiktok**. This vertical's
 priority list from the Vertical Wizard defaults is `meta_ads, google_search, linkedin, property_portals` — of
 those, **linkedin** is directly usable as an MCP `platform` value for organic posts (market-update,
-thought-leadership style). `meta_ads`, `google_search`, and `property_portals` (e.g. listing sites) are
-managed outside MCP. Many agents also run organic Facebook/Instagram for listing photos — add those platforms
-to your generation loop if your workspace connects them.
+thought-leadership style). `meta_ads` campaign *records* (budget, objective, status) can be tracked with the
+`campaigns:read`/`campaigns:write` tools (`create_campaign`, `list_campaigns`, etc.), but there is no MCP path
+yet to actually launch or pause live ad spend — that step still happens natively on Meta or the dashboard's
+Campaigns tab. `google_search` and `property_portals` (e.g. listing sites) remain outside MCP's scope entirely.
+Many agents also run organic Facebook/Instagram for listing photos — add those platforms to your generation
+loop if your workspace connects them.
 
 ## What to track
 
@@ -60,5 +63,7 @@ this vertical:
 - Do not publish generated copy without reading it first — pricing/market claims need a human check
 - Do not reuse the same copy across all platforms — LinkedIn wants market-expert framing, Instagram wants
   lifestyle framing
-- Do not treat `meta_ads` / `google_search` / `property_portals` as MCP-automatable — those live outside
-  MCP's scope
+- Do not treat `google_search` / `property_portals` as MCP-automatable — those live outside MCP's scope
+  entirely
+- Do not assume `create_campaign` / `update_campaign` launches real `meta_ads` spend — they only manage
+  campaign records; the actual Meta launch still happens natively

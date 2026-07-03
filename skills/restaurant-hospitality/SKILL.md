@@ -29,9 +29,11 @@ venue] — sensory, visual-first, always with an easy reservation CTA.
 
 Organic content via the PromotiAI MCP supports **facebook, instagram, linkedin, tiktok**. This vertical's
 priority list from the Vertical Wizard defaults is `instagram, meta_ads, google_local, tiktok` — of those,
-**instagram** and **tiktok** are directly usable as MCP `platform` values for organic posts. `meta_ads` and
-`google_local` are paid/local-listing channels managed outside MCP (dashboard Campaigns tab / Google Business
-Profile).
+**instagram** and **tiktok** are directly usable as MCP `platform` values for organic posts. `meta_ads`
+campaign *records* (budget, objective, status) can be tracked with the `campaigns:read`/`campaigns:write`
+tools (`create_campaign`, `list_campaigns`, etc.), but there is no MCP path yet to actually launch or pause
+live ad spend — that step still happens natively on Meta or the dashboard's Campaigns tab. `google_local`
+remains outside MCP's scope entirely (manage it directly in Google Business Profile).
 
 ## What to track
 
@@ -60,5 +62,6 @@ this vertical:
 - Do not publish generated copy without reading it first
 - Do not reuse the same copy across Instagram and TikTok — TikTok needs hook/value/CTA script format, not a
   caption
-- Do not treat `meta_ads` / `google_local` as MCP-automatable — those live in the dashboard Campaigns tab or
-  Google Business Profile
+- Do not treat `google_local` as MCP-automatable — it lives in Google Business Profile
+- Do not assume `create_campaign` / `update_campaign` launches real `meta_ads` spend — they only manage
+  campaign records; the actual Meta launch still happens natively

@@ -30,9 +30,11 @@ description: PromotiAI content operator template for SaaS / B2B software — tri
 
 Organic content via the PromotiAI MCP supports **facebook, instagram, linkedin, tiktok**. This vertical's
 priority list from the Vertical Wizard defaults is `linkedin, google_search, content_seo, retargeting` — of
-those, **linkedin** is the one directly usable as an MCP `platform` value for organic posts. `google_search`,
-`content_seo`, and `retargeting` are paid/SEO channels managed in the dashboard's **Campaigns** tab or on your
-own site, not exposed via MCP tools.
+those, **linkedin** is the one directly usable as an MCP `platform` value for organic posts. `retargeting`
+campaign *records* (budget, objective, status) can be tracked with the `campaigns:read`/`campaigns:write`
+tools (`create_campaign`, `list_campaigns`, etc.), but there is no MCP path yet to actually launch or pause
+live ad spend — that step still happens natively on the ad platform or the dashboard's **Campaigns** tab.
+`google_search` and `content_seo` remain outside MCP's scope (your own SEO/content stack).
 
 ## What to track
 
@@ -58,6 +60,7 @@ this vertical:
 
 - Do not publish generated copy without reading it first — B2B tone mismatches are especially visible
 - Do not reuse the same copy across all platforms — always generate a platform-specific variant
-- Do not treat `google_search` / `content_seo` / `retargeting` as MCP-automatable — those live outside MCP's
-  scope (dashboard Campaigns tab or your own SEO/content stack)
+- Do not treat `google_search` / `content_seo` as MCP-automatable — those live outside MCP's scope entirely
+- Do not assume `create_campaign` / `update_campaign` launches real `retargeting` spend — they only manage
+  campaign records; the actual ad-platform launch still happens natively
 - Do not hard-sell in the first line — lead with the insight, not the pitch

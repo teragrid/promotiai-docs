@@ -30,8 +30,11 @@ for [your practice] — empathetic, evidence-based, always with a booking CTA.
 
 Organic content via the PromotiAI MCP supports **facebook, instagram, linkedin, tiktok**. This vertical's
 priority list from the Vertical Wizard defaults is `meta_ads, instagram, google_local, content_seo` — of
-those, **instagram** is directly usable as an MCP `platform` value for organic posts. `meta_ads`,
-`google_local`, and `content_seo` are paid/local-listing/website channels managed outside MCP.
+those, **instagram** is directly usable as an MCP `platform` value for organic posts. `meta_ads` campaign
+*records* (budget, objective, status) can be tracked with the `campaigns:read`/`campaigns:write` tools
+(`create_campaign`, `list_campaigns`, etc.), but there is no MCP path yet to actually launch or pause live ad
+spend — that step still happens natively on Meta or the dashboard's Campaigns tab. `google_local` and
+`content_seo` remain outside MCP's scope entirely.
 
 ## What to track
 
@@ -59,4 +62,6 @@ this vertical:
 - Do not publish generated copy without reading it first — health claims need a human/compliance check every
   time
 - Do not overstate outcomes ("guaranteed results") — this vertical carries real regulatory and trust risk
-- Do not treat `meta_ads` / `google_local` / `content_seo` as MCP-automatable — those live outside MCP's scope
+- Do not treat `google_local` / `content_seo` as MCP-automatable — those live outside MCP's scope entirely
+- Do not assume `create_campaign` / `update_campaign` launches real `meta_ads` spend — they only manage
+  campaign records; the actual Meta launch still happens natively

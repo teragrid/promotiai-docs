@@ -30,10 +30,13 @@ volunteer signups for [your cause] — story-led, impact-focused, transparent ab
 
 Organic content via the PromotiAI MCP supports **facebook, instagram, linkedin, tiktok**. This vertical's
 priority list from the Vertical Wizard defaults is `meta_ads, email, content_seo, community` — none of these
-map directly to an MCP `platform` value; they're paid ads, email, website SEO, and community platforms, all
-managed outside MCP. Most cause organizations also run active organic Facebook/Instagram for storytelling —
-use MCP to generate and schedule that content even though it isn't the wizard's first-listed channel for this
-vertical.
+map directly to an MCP `platform` value for organic posts; they're paid ads, email, website SEO, and community
+platforms. `meta_ads` campaign *records* (budget, objective, status) can be tracked with the
+`campaigns:read`/`campaigns:write` tools (`create_campaign`, `list_campaigns`, etc.), but there is no MCP path
+yet to actually launch or pause live ad spend — that step still happens natively on Meta or the dashboard's
+Campaigns tab. `email`, `content_seo`, and `community` remain outside MCP's scope entirely. Most cause
+organizations also run active organic Facebook/Instagram for storytelling — use MCP to generate and schedule
+that content even though it isn't the wizard's first-listed channel for this vertical.
 
 ## What to track
 
@@ -62,4 +65,6 @@ this vertical:
 - Do not publish generated copy without reading it first — impact claims and figures need verification before
   they go public
 - Do not overstate impact numbers — donor trust is the core asset in this vertical
-- Do not treat `meta_ads` / `email` / `content_seo` as MCP-automatable — those live outside MCP's scope
+- Do not treat `email` / `content_seo` as MCP-automatable — those live outside MCP's scope entirely
+- Do not assume `create_campaign` / `update_campaign` launches real `meta_ads` spend — they only manage
+  campaign records; the actual Meta launch still happens natively
